@@ -45,6 +45,7 @@ public class JUnitConcurrentTodo {
         capabilities.setCapability("platform", platform); // If this cap isn't specified, it will just get the any available one
         capabilities.setCapability("build", "JUnitParallelSample");
         capabilities.setCapability("name", "JUnitParallelSampleTest");
+        capabilities.setCapability("tunnel", "true");
         // capabilities.setCapability("network", true); // To enable network logs
         // capabilities.setCapability("visual", true); // To enable step by step screenshot
         // capabilities.setCapability("video", true); // To enable video recording
@@ -61,28 +62,30 @@ public class JUnitConcurrentTodo {
     public void testParallel() throws Exception {
        try {
               //Change it to production page
-            driver.get("https://lambdatest.github.io/sample-todo-app/");
+            driver.get("http://localhost:3000/");
+            Thread.sleep(5000);
+        
               //Let's mark done first two items in the list.
-              driver.findElement(By.name("li1")).click();
-            driver.findElement(By.name("li2")).click();
+//               driver.findElement(By.name("li1")).click();
+//             driver.findElement(By.name("li2")).click();
              
-             // Let's add an item in the list.
-              driver.findElement(By.id("sampletodotext")).sendKeys("Yey, Let's add it to list");
-            driver.findElement(By.id("addbutton")).click();
+//              // Let's add an item in the list.
+//               driver.findElement(By.id("sampletodotext")).sendKeys("Yey, Let's add it to list");
+//             driver.findElement(By.id("addbutton")).click();
              
-              // Let's check that the item we added is added in the list.
-            String enteredText = driver.findElementByXPath("/html/body/div/div/div/ul/li[6]/span").getText();
-            if (enteredText.equals("Yey, Let's add it to list")) {
-                status = "passed";
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+//               // Let's check that the item we added is added in the list.
+//             String enteredText = driver.findElementByXPath("/html/body/div/div/div/ul/li[6]/span").getText();
+//             if (enteredText.equals("Yey, Let's add it to list")) {
+//                 status = "passed";
+//             }
+//         } catch (Exception e) {
+//             System.out.println(e.getMessage());
+//         }
     }  
     @After
     public void tearDown() throws Exception {
        if (driver != null) {
-            driver.executeScript("lambda-status=" + status);
+//             driver.executeScript("lambda-status=" + status);
             driver.quit();
         }
     }
