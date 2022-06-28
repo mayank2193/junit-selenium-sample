@@ -24,7 +24,7 @@ public class JUnitTodo {
         capabilities.setCapability("platform", "Windows 10"); // If this cap isn't specified, it will just get the any available one
         capabilities.setCapability("build", "LambdaTestSampleApp");
         capabilities.setCapability("name", "LambdaTestJavaSample");
-        capabilities.setCapability("tunnel", "true");
+        //capabilities.setCapability("tunnel", "true");
         // capabilities.setCapability("network", true); // To enable network logs
         // capabilities.setCapability("visual", true); // To enable step by step screenshot
         // capabilities.setCapability("video", true); // To enable video recording
